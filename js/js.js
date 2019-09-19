@@ -66,6 +66,7 @@ function publishReview () {
     $("#error_comment").addClass("hidden")
 
     let newHTML = ''
+    let stars = $("input[name='rating']:checked").val()
 
     newHTML += `
                 <div class="review">
@@ -78,7 +79,7 @@ function publishReview () {
                   <br>
                 `
 
-    newHTML += getStarsSpans(5)
+    newHTML += getStarsSpans(stars)
 
     newHTML += `
                 <p>
@@ -108,6 +109,7 @@ function limpiar() {
   $("#nombre").val("")
   $("#email").val("")
   $("#comentario").empty()
+  $("input[name='rating']:checked").prop('checked', false)
 }
 
 
